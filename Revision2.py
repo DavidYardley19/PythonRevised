@@ -132,3 +132,5 @@ while i < len(numbers):
     i += 1
 print()
 
+# Learn how to use list comprehension
+# https://www.w3schools.com/python/python_lists_loop.asp
