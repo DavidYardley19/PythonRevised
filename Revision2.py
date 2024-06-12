@@ -137,19 +137,6 @@ print()
 
 """ Python exercises provided by pictureFrame AI """
 
-"""
-Task 6
-Write a program that takes a list of integers as input and returns a new list that contains
-only the positive even numbers in the input list.
-
-Example input: [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6]
-Example output: [2, 4, 6]
-
-In the above example, the program should first filter out all the negative integers, then
-only select the even numbers, which are 2, 4, and 6.
-
-"""
-
 
 
 """ 
@@ -191,16 +178,24 @@ Example output: [3, 4, 5]
 
 inputOne = input("Please enter a list of integers seperated by spaces")
 listOne = inputOne.split(" ")
-inputOne = input("Please enter another list of integers seperated by spaces")
-listOne = inputOne.split(" ")
+listOneAsInt = []
+for i in listOne:
+    listOneAsInt.append(int(i))
+set1 = set(listOneAsInt)
+
+inputTwo = input("Please enter another list of integers seperated by spaces")
+listTwo = inputTwo.split(" ")
+listTwoAsInt = []
+for i in listTwo:
+    listTwoAsInt.append(int(i))
+set2 = set(listTwoAsInt)
+
 print("I will check for common elements in both")
-# use sets?
-mySet = {1,2}
-mySet.add(1)
-print(mySet)
-newlist = list(mySet)
-print(newlist)
-# Need to complete this one
+set3 = set1.intersection(set2)
+intersectionList = list(set3)
+print(intersectionList)
+
+## This is horribly conveluted.
 
 """ 
 Task 4
@@ -245,3 +240,35 @@ print(reversedString)
 # There is a more sleek version
 reversedString = myString[::-1]
 print(reversedString)
+
+"""
+Task 6
+Write a program that takes a list of integers as input and returns a new list that contains
+only the positive even numbers in the input list.
+
+Example input: [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6]
+Example output: [2, 4, 6]
+
+In the above example, the program should first filter out all the negative integers, then
+only select the even numbers, which are 2, 4, and 6.
+
+"""
+
+rawList = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6]
+positiveEvenList = []
+for i in rawList:
+    if i%2==0 and i>=0:
+        positiveEvenList.append(i)
+print(positiveEvenList)
+
+"""
+Task 7
+Write a program that takes a positive integer as input and prints out the multiplication
+table for that integer up to 10.
+
+Example input: 5
+"""
+
+userInput = int(input("Please enter an integer: "))
+for i in range(1,11):
+    print(f"{i} x {userInput} = {i*userInput}")
