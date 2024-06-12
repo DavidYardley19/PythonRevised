@@ -134,3 +134,68 @@ print()
 
 # Learn how to use list comprehension
 # https://www.w3schools.com/python/python_lists_loop.asp
+
+""" Python exercises provided by pictureFrame AI """
+
+
+
+
+
+""" 
+
+Write a program that takes a list of integers as input and returns the sum of all the even
+numbers in the list.
+Example input: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Example output: 30
+
+ """
+
+list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+sumOfList = 0
+for i in range(0,len(list1) + 1, 2):
+    sumOfList += i
+print(f"The sum of the elements in the list: {list1} is equal to {sumOfList}")
+
+""" 
+
+Write a program that takes a string as input and returns a new string that contains only
+the first and last characters of the input string.
+Example input: "hello"
+Example output: "ho"
+
+ """
+
+exampleInput = input("Please enter a string, I will output the first and last character: ")
+print(exampleInput[0]+exampleInput[-1])
+
+""" 
+
+Write a program that takes two lists of integers as input and returns a new list that
+contains only the common elements between the two lists (i.e., the elements that are
+present in both lists).
+Example input: [1, 2, 3, 4, 5] and [3, 4, 5, 6, 7]
+Example output: [3, 4, 5]
+
+ """
+
+inputOne = input("Please enter a list of integers seperated by spaces")
+listOne = inputOne.split(" ")
+inputOne = input("Please enter another list of integers seperated by spaces")
+listOne = inputOne.split(" ")
+print("I will check for common elements in both")
+# use sets?
+mySet = {1,2}
+mySet.add(1)
+print(mySet)
+newlist = list(mySet)
+print(newlist)
+# Need to complete this one
+
+myString = "david"
+reversedString = ""
+for i in range(len(myString) -1, -1, -1):
+    reversedString += myString[i]
+print(reversedString)
+# There is a more sleek version
+reversedString = myString[::-1]
+print(reversedString)
