@@ -265,3 +265,203 @@ List methods:
 
     All have been done.
 """
+
+#
+"""  """
+#
+
+""" 
+Going to work on some tuples before checking out API's
+
+Ordered, immutable
+Written with (rounded brackets)
+Alows duplicates
+"""
+
+myTuple = (1,2,3,4,4,4)
+print(myTuple , "has a length of:" , len(myTuple))
+
+# You can have a tuple with just one value
+singleVal = (1,)
+print(type(singleVal))
+# Typically a good idea to just add a comma after the values anyway
+goodTuple = (1,2,3,4,)
+print(type(goodTuple))
+# You cannot have the following, the brackets do nothing here
+singleVal = (1)
+print(type(singleVal))
+
+""" Tuples can contain different data types """
+mixedTuple = (1,2.222,True, "Hello",)
+
+""" tuple constructor can be used to create a tuple, I wonder if you can inset a list and a set here? """
+mySet = {1,2,3}
+myList = [1,2,3]
+myTuple = tuple(mySet)
+myTuple = tuple(myList)
+# Yes you can
+# Inserting vals directly, you need two parenthesis
+myTuple = tuple((1,2,3,4,5))
+print(myTuple)
+
+""" Accessing items, indexing can be used with the squared brackets """
+print(myTuple[0])
+# The first value in the tuple is outputted
+# Negative indexing can be used all the same
+
+# Checking if the tuple contains a specific element
+if 2 in myTuple:
+    print("2 is in tuple")
+
+""" Updating tuples... they are immutable, but there is a workaround... change it to a list then back to a tuple """
+x = (1,2,3)
+y = list(x)
+y[0] = 99
+y.append(0)
+x = tuple(y)
+print(x)
+
+""" Adding two tuples """
+z = (44,)
+x += z
+print(x)
+
+""" del can be used to remove a tuple """
+del x
+# print(x) >> Will not work since it is gone
+
+""" Unpacking a tuple """
+
+# Example of packing
+numbers = (255,0,122,)
+# Extract values back into variables, this is unpacking
+(r,g,b) = numbers
+print(r)
+print(g)
+print(b)
+
+""" Using an * :: if num of vars is less than the number of vals, * can be used """
+fruits = ("apple", "banana", "cherry", "strawberry", "raspberry")
+
+(green, yellow, *red) = fruits
+
+print(green)
+print(yellow)
+print(red)
+
+# TODO: Question, what if you put it in the middle
+(green, *yellow, red) = fruits
+print(green)
+print(yellow)
+print(red)
+# So python is able to recognise that you have 1-1 var-val relations on the end
+
+# TODO: Question, what if you have two asterisks?
+""" (green, *yellow, *red) = fruits
+
+print(green)
+print(yellow)
+print(red) 
+
+# This produces an error
+"""
+
+""" Looping """
+myTuple = (10,20,30,)
+for x in myTuple:
+    print(x)
+
+for i in range(len(myTuple)):
+    print(myTuple[i])
+
+# Using a while loop >> Less of a fan with this one since more checks need to be made
+i = 0
+while i < len(myTuple):
+    print(myTuple[i])
+    i += 1
+
+""" Multiplying tuples """
+fruits = ("apple", "banana", "cherry")
+mult = 2
+myTuple = fruits * mult
+print(myTuple)
+# Just seems like extending the tuple by mult times.
+
+""" Methods:
+    count()	Returns the number of times a specified value occurs in a tuple
+    index()	Searches the tuple for a specified value and returns the position of where it was found
+        >>> I believe this only does it for the first instance
+ """
+
+# checking index
+numbers = (1,2,3,1,)
+print(numbers.index(1))
+# Obviously you "cant" find the index of an item which isnt in the collection 
+
+""" 
+moving on to sets
+
+Written with curly braces
+
+They are unordered, unindexed and immutable***
+    *** >> You can remove and add new items... BUT CANNOT CHANGE ITEMS
+
+NOTE: YOU CAN NOT HAVE DUPLICATE VALUES IN SETS   
+"""
+
+mySet = {1,2,3,4,5,"hello", False, 1.23456}
+# Note this isssss fine.... But be very careful
+    # True = 1
+    # False = 0
+# Since you cant have dupes, be VERY careful.
+
+# So what if we have a set with both?
+dupeSet = {False, 0, True, 1}
+print(dupeSet)
+dupeSet = {0, False, 1, True}
+print(dupeSet)
+# So you can add elements, but if it already exists in the set Left-To-Right... Then the computer 'ignores' the ones added. Length doesnt change
+
+# Length
+print(len(mySet))
+print(type(mySet))
+
+# Set constructor:
+newSet = set((1,2,3,4,5,6,7))
+print(newSet)
+# Double rounded brackets again
+
+# Can you pass it a list?
+newlist = [1,2,3,4,5,5,5,5,5]
+    # 5,5,5,5,5... added to check the no dupe feature
+newSet = set(newlist)
+print(newSet)
+
+""" Accessing items """
+for x in mySet:
+    print(x)
+
+print(mySet)
+# Check for ownership
+print(2 in mySet)
+# Check for not- ownership
+print(1 not in mySet)
+
+""" Adding set items """
+# jsut like append, but instead you use add
+mySet = {1,2,3}
+mySet.add(4)
+print(mySet)
+
+# to add items from another set:
+addingSet = {7,8,9}
+mySet.update(addingSet)
+print(mySet)
+
+# TODO: Can you use comprehension to add a list of items?
+mySet = {1,2,3}
+mySet.update(x for x in range(10) if x%2==0)
+print(mySet)
+
+## Up to : Adding any iterable
+## https://www.w3schools.com/python/python_sets_add.asp
