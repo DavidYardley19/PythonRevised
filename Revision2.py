@@ -135,3 +135,133 @@ print()
 # Learn how to use list comprehension
 # https://www.w3schools.com/python/python_lists_loop.asp
 
+""" 
+dt. 13/06/2024
+LetsGetIt
+"""
+
+# List comprehension
+thisList = ["apple", "banana", "cherry"]
+print((x) for x in thisList)
+
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newList = []
+for x in fruits:
+    if "a" in x:
+        newList.append(x)
+print(newList)
+
+# This can all be done in one line!! Need to check over the exercises given last session!¬!
+fruits = ["apple", "banana", "cherry", "kiwi", "mango"]
+newlist = [x for x in fruits if "a" in x]
+print(newlist)
+
+newlist = [x for x in fruits if x!= "kiwi"]
+print(newlist)
+
+# Note that the conditional is optional
+newlist = [x for x in fruits]
+
+# Range function can be used here
+evenNumbers = [x for x in range(0,21,2)]
+print(evenNumbers)
+
+# String manipulation can be used!
+
+upperFruits = [x.upper for x in fruits]
+print(upperFruits)
+
+# using else
+print(fruits)
+newlist = [x if x!= "banana" else "orange" for x in fruits]
+print(newlist)
+
+""" Sorting lists """
+
+# .sort >> ALphanumeric asc by def
+print(f"Fruits unsorted, then sorted")
+fruits.append("blueberry")
+print(fruits)
+fruits.sort()
+print(fruits)
+
+# Test: do capitals come first?
+fruits.append("ZuluFruit")
+fruits.sort()
+print(fruits)
+# Answer: Yes, yes they do >> Maybe it runs on order of ascii, or unicode?
+
+myNumbers = [1,2,3,4,1]
+myNumbers.sort()
+print(myNumbers)
+
+# Sorting by reversed
+myNumbers.sort(reverse=True)
+print(myNumbers)
+
+# Customising the sort function using "key = function"
+def myfunc(n):
+    return abs(n-50)
+
+thisList = [100,182,0,23]
+thisList.sort(key = myfunc)
+print(thisList)
+# It does not look right?
+# No it is right, it sorts it by how close each value is to 50, but retains the initial values... Interesting.
+    # Back end of back end programming lol
+
+# Tackling case sensetive shorting
+thislist = ["banana", "Orange", "Kiwi", "cherry"]
+thislist.sort()
+print(thislist)
+# Capitals come first here
+thislist.sort(key = str.lower)
+print(thislist)
+
+""" Copying lists
+NOTE: be very careful when doing list1 = list2 ... because they are simply just references to a list collection... any changes done in list2 are also made in list1
+
+use list.copy()
+ """
+
+thislist = [1,2,4]
+copiedList = thislist.copy()
+print(copiedList)
+
+# Another way using the constructor method: list()
+copiedList2 = list(thisList)
+print(copiedList2)
+
+""" Joining two lists """
+list1 = [1,2,3]
+list2 = ['a', 'b', 'c']
+list1plus2 = list1 + list2
+print(list1plus2)
+# Seems like the same as just extending the list?
+
+# Keeping list 1 but appending each element in list 2
+for x in list2:
+    list1.append(x)
+print(list1)
+
+# Extending as mentioned before:
+list1 = [1,2,3]
+list1.extend(list2)
+print(list1)
+
+""" 
+List methods:
+    append()	Adds an element at the end of the list
+    clear() 	Removes all the elements from the list
+    copy()	    Returns a copy of the list
+    count()	    Returns the number of elements with the specified value
+    extend()	Add the elements of a list (or any iterable), to the end of the current list
+    index()	    Returns the index of the first element with the specified value
+    insert()	Adds an element at the specified position
+    pop()	    Removes the element at the specified position
+    remove()	Removes the item with the specified value
+    reverse()	Reverses the order of the list
+    sort()	    Sorts the list
+
+    All have been done.
+"""
