@@ -159,9 +159,9 @@ Write a function that takes in a list of strings and a string, and returns a new
 For example, if the function is called find_strings(['hello', 'world', 'python'], 'l'), it should return ['hello', 'world'].
 """
 # Note: I personally do not like using single quotes since there exists another language that specifically uses single quotes for characters... could be JAVA, will have to check
-myList = ['hello', 'world', 'python']
-myString = "l"
-def find_strings(myList, myString):
+my_list = ['hello', 'world', 'python']
+my_string = "l"
+def find_strings(my_list, my_string):
     """
     Initialises an empty 'output' list.
     Iterates over the list of elements provided, checking if the string provided is contained within element.
@@ -169,14 +169,14 @@ def find_strings(myList, myString):
 
     Output: Output list containing all elements of the input list which contain the string provided.
     """
-    outputList = []
+    output_list = []
     # Well, I also do not like using string since I treat it as a keyword in my head. But I will amend this once I find a better practice.
-    for element in myList:
-        if myString in element:
-            outputList.append(element)
-    print(outputList)
+    for element in my_list:
+        if my_string in element:
+            output_list.append(element)
+    print(output_list)
 
-find_strings(myList, myString)
+find_strings(my_list, my_string)
     # Returns ['hello', 'world'], YES
 
 # Exercise 10
