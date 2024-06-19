@@ -21,7 +21,7 @@ How to create the front end?
 
 # See if I can create something with just python for now.
 
-# Open weather api key fe4686bdf5bc319bc7073f4e18555f68 
+# Open weather api key 
 
 import requests
 import time
